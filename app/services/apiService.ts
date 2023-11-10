@@ -27,7 +27,7 @@ const apiService = {
         params: {
             apikey: TicketmasterAPIKey,
             keyword: searchTerm,
-            size: 10, // Defina o tamanho desejado
+            size: 10,
         },
       });
       return response.data || [];

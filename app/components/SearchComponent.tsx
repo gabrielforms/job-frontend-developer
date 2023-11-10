@@ -20,14 +20,12 @@ function SearchComponent({ onSearchResults }: SearchComponentProps) {
         const combinedResults = await { youtubeVideos, ticketMasterAttraction };
         console.log("Resultado", combinedResults);
   
-        // Aguarde a conclusão da atualização do estado
         await onSearchResults(combinedResults);
       }
       else {
         const combinedResults = await { youtubeVideos };
         console.log("Resultado", combinedResults);
   
-        // Aguarde a conclusão da atualização do estado
         await onSearchResults(combinedResults);
       }
 

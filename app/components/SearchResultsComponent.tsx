@@ -6,6 +6,10 @@ interface SearchResultsComponentProps {
   ticketMasterAttraction: any[];
 }
 
+interface ExternalLinks {
+  [key: string]: string;
+}
+
 const SearchResultsComponent: React.FC<SearchResultsComponentProps> = ({ youtubeVideos, ticketMasterAttraction }) => {
   if (!youtubeVideos && !ticketMasterAttraction) {
     return <p>Carregando...</p>;
@@ -52,16 +56,16 @@ const SearchResultsComponent: React.FC<SearchResultsComponentProps> = ({ youtube
                   <div>
                     <h5 className="text-md font-semibold mb-2">Redes Sociais da Atração</h5>
                     <ul>
-                      {Object.entries(attraction.externalLinks).map(([socialMedia, link]) => (
+                      {Object.entries(attraction.externalLinks as ExternalLinks).map(([socialMedia, link]) => (
                         <li key={socialMedia} className="mb-2">
-                          <Link
-                            href={link}
+                          <a
+                            href={link[0][`url`]}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-500 hover:underline"
                           >
                             {socialMedia}
-                          </Link>
+                          </a>
                         </li>
                       ))}
                     </ul>
